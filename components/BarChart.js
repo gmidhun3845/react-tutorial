@@ -16,19 +16,6 @@ class BarChart extends Component {
 		this.removeElement = this.removeElement.bind(this);
 	}
 
-	// ComponentWillMount(props){
-	// 	console.log("ofinwoeindeo")
-	// 	this.setState({height: this.props.height,width: this.props.width, x: this.props.x, y: this.props.y})
-	// }
-	// ComponentDidMount(props){
-	// 	console.log("dmmweded ew")
-	// 	this.setState({height: this.props.height,width: this.props.width, x: this.props.x, y: this.props.y})
-	// }
-	// ComponentWillReceiveProps(props){
-	// 	console.log("ofinwowededkqweqweindeo")
-	// 	this.setState({height: this.props.height,width: this.props.width, x: this.props.x, y: this.props.y})
-	// }
-
 	addElement(event){
 
 		this.setState({ 

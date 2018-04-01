@@ -10,7 +10,7 @@ class Rectangle extends Component {
 			height: this.props.height,
 			width: this.props.width,
 			x: this.props.x,
-			y: this.props.y,
+			y: this.props.y, 
 			transition: this.props.transition
 		}
 	}
@@ -21,7 +21,7 @@ class Rectangle extends Component {
 	// 	var temp = this.state.height;
 	// 	console.log(temp);
  
- //        this.setState({height: 0});
+ //        this.setState({y: 0});
 
  //        console.log(this.state)
  
@@ -71,8 +71,8 @@ class Rectangle extends Component {
  //            .style("fill-opacity", 1e-6)
  //            .on("end", () => {
  //                this.setState({ y: 60, fillOpacity: 1e-6 });
- //                callback();
- //            });
+ //            //     callback();
+ //            // });
 	// }
 
 	shouldComponentUpdate(nextProps){
