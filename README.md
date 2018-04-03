@@ -4,20 +4,11 @@ This project is a beginner level tutorial to setting up a react app. We will als
 
 ## Requirements
 
-For development, you will need Node.js installed on your environement.
-And please use the appropriate [Editorconfig](http://editorconfig.org/) plugin for your Editor (not mandatory).
+For development, you will need Node.js installed on your environement. Then we will use npm to get React and D3.
 
 ### Node
 
 [Node](http://nodejs.org/) is really easy to install & now includes [NPM](https://npmjs.org/).
-You should be able to run the following command after the installation procedure
-below.
-
-    $ node --version
-    v0.10.24
-
-    $ npm --version
-    1.3.21
 
 #### Node installation on OS X
 
@@ -25,9 +16,16 @@ below.
 
 #### Node installation on Linux
 
-    sudo apt-get install python-software-properties
-    sudo add-apt-repository ppa:chris-lea/node.js
-    sudo apt-get update
+    curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash 
     sudo apt-get install nodejs
-    
+    sudo apt-get install build-essential
+
+You should be able to run the following command after the installation.
+
+    $ node -v
+    v9.10.1
+
+    $ npm -v
+    5.6.0
+
 ---
