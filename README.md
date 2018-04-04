@@ -186,5 +186,88 @@ Also modify the App.js as below to send props to the child components and render
 	export default App;
 
 You can see by running the app a rectangle in the browser.
+
 ![Rectangle example](react_rectangle.png)
+
+### creating bar chart
+
+Let us now install d3 using npm.
+
+	npm install --save d3
+
+We add a new component BarChart in the components folder. Create the file BarChart in components folder and add the following code.
+
+	import React, { Component } from 'react'
+	import Rectangle from "./Rectangle"
+	import * as d3 from 'd3'
+
+	class BarChart extends Component {
+
+		constructor(props){
+			super(props)
+			this.state = {
+				data: [300,100,150,225,75,275],
+				width: 500,
+				height: 400
+			}
+		}
+
+		render() {
+
+			var props = this.state;
+
+		    var y_scale = d3.scaleLinear().domain([0, d3.max(this.state.data)]).range([0, this.state.height]);
+
+		    var x_scale = d3.scaleBand().domain(d3.range(this.state.data.length)).rangeRound([0, this.state.width]).padding(0.1);
+
+		    var bars = this.state.data.map(function(point, i) {
+		      var height = y_scale(point),
+		          y = props.height - height,
+		          width = x_scale.bandwidth(),
+		          x = x_scale(i);
+		      return (
+		        <Rectangle height={height} 
+		              width={width} 
+		              x={x} 
+		              y={y} 
+		              key={i} />
+		      )
+		    });
+
+			return ( 
+					<div>
+						<svg width={this.state.width} height={this.state.height}>
+							{bars}
+						</svg>
+					</div>
+				);
+		}
+	}
+	export default BarChart;
+
+The code simply generates a Rectangle component for each datapoint and renders those bars. We will now refactor App.js into rendering BarChart instead of a rectangle and you can see the result below.
+
+	import React, {Component} from 'react';
+	import BarChart from '../components/BarChart'
+
+	class App extends Component {
+	    render () {
+	        return (
+	        	<div>
+	        		<h1 style={{color:"green"}}>React & D3 tutorial</h1>
+	        		<BarChart></BarChart>
+	        	</div>
+	        );
+	    }
+	}
+
+	export default App;
+
+![BarChart example](react_barchart.png)
+
+## References
+
+https://codeburst.io/setting-up-a-react-project-from-scratch-d62f38ab6d97
+
+
 ---
