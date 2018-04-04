@@ -313,6 +313,13 @@ We will now add two buttons in the BarChart "Add" and "Remove". As the names ind
 	}
 
 
+### Run the code:
+
+To run the code, clone the git repo and install nodejs. In the root folder of the repo run the following commands. The server should be running now.
+
+	npm install
+	npm run dev
+
 ## References
 
 https://codeburst.io/setting-up-a-react-project-from-scratch-d62f38ab6d97
