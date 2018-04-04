@@ -67,9 +67,6 @@ Now we need to configure webpack to make you of babel-loader and output a bundle
 	                use: {
 	                    loader: 'babel-loader'
 	                }
-	            },{
-	                test: /\.less$/,
-	                use: ["style-loader", "css-loader"]
 	            }
 	        ]
 	    },
@@ -83,5 +80,28 @@ Now we need to configure webpack to make you of babel-loader and output a bundle
 	    }
 	}
 
-	
+
+Now lets create our index.html and index.js which is the entry point for our webpack server. Create two files index.html and index.js in the root folder.
+
+	<!DOCTYPE html>
+	<html>
+	    <head>
+	        <title> React Tutorial </title>
+	    </head>
+	    <body>
+
+	        <div id="app"></div>
+	        <script type="text/javascript" src="/bundle.js"></script>
+	        <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+	    </body>
+	</html>
+
+You can see in the index.html code our code will be mounted inside <div id="app"></div>. And you can see in the index.js file below, our App will be mounted inside element with id "app".
+
+	import React from 'react';
+	import ReactDOM from 'react-dom';
+	import App from './containers/App';
+
+	ReactDOM.render(<App />, document.getElementById('app'))
+
 ---
