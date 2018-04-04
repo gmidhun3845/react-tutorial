@@ -47,7 +47,15 @@ Now run the follwing commands to add react and babel as dependencies to the proj
 	npm install --save react react-dom
 	npm install --save-dev babel-core babel-loader babel-preset-env babel-preset-react
 	npm install --save-dev webpack webpack-cli webpack-dev-server
-	touch webpack.dev.config.js
+
+Now that we installed babel we need to configure the react app to use babel. Add the following config in the package.json file
+
+	"babel": {
+	    "presets": [
+	      "env",
+	      "react"
+	    ]
+	  },
 
 Now we need to configure webpack to make you of babel-loader and output a bundle.js file. Create a file webpack.dev.config.js and define a entry point, loaders that are responsible to turing the code into single js file, output path for the bundle and options for the dev server.
 
@@ -103,5 +111,36 @@ You can see in the index.html code our code will be mounted inside ```html <div 
 	import App from './containers/App';
 
 	ReactDOM.render(<App />, document.getElementById('app'))
+
+For the final step of the setup, we will create a componen that will be mounted on the homepage of the server.
+
+	mkdir containers
+	cd container
+	touch App.js
+
+Add the following code to the App.js file create. The App component simply return header that has some text.
+
+	import React, {Component} from 'react';
+
+	class App extends Component {
+	    render () {
+	        return (
+	        		<h1 style={{color:"green"}}>React & D3 tutorial</h1>
+	        );
+	    }
+	}
+
+	export default App;
+
+Add the following script to package.json to let webpack know where the config file is and to run.
+
+	"scripts": {
+	  "test": "echo \"Error: no test specified\" && exit 1",
+	  "dev": "./node_modules/.bin/webpack-dev-server --mode development --config ./webpack.dev.config.js"
+	}
+
+Finally run the command below to start the server and you will be able to see the app working on http://localhost:8080 
+
+	npm run dev
 
 ---
