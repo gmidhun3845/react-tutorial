@@ -96,7 +96,7 @@ Now lets create our index.html and index.js which is the entry point for our web
 	    </body>
 	</html>
 
-You can see in the index.html code our code will be mounted inside <div id="app"></div>. And you can see in the index.js file below, our App will be mounted inside element with id "app".
+You can see in the index.html code our code will be mounted inside {::nomarkdown}<div id="app"></div>{:/}. And you can see in the index.js file below, our App will be mounted inside element with id "app".
 
 	import React from 'react';
 	import ReactDOM from 'react-dom';
