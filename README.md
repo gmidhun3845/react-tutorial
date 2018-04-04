@@ -159,7 +159,7 @@ Write the following code to the file. Which receives props from a parent compone
 
 	class Rectangle extends Component {
 		render() {
-			return ( <rect width={this.props.width} height={this.props.height} x={this.props.x} y={this.props.y} /> );
+			return ( <rect width={this.props.width} height={this.props.height} x={this.props.x} y={this.props.y} fill="orange"/> );
 		}
 	}
 
@@ -176,7 +176,7 @@ Also modify the App.js as below to send props to the child components and render
 	        	<div>
 	        		<h1 style={{color:"green"}}>React & D3 tutorial</h1>
 	        		<svg height="500" width="500">
-	        			<Rectangle height="30" width="150" x="30" y="30" fill="orange"></Rectangle>
+	        			<Rectangle height="30" width="150" x="30" y="30"></Rectangle>
 	        		</svg>
 	        	</div>
 	        );
@@ -264,6 +264,46 @@ The code simply generates a Rectangle component for each datapoint and renders t
 	export default App;
 
 ![BarChart example](react_barchart.png)
+
+We will now add two buttons in the BarChart "Add" and "Remove". As the names indicate the "Add" button will add a random element and the "Remove" button will remove the last element of the BarChart. Make adjustments to the BarChart.js as below.
+
+	constructor(props){
+		super(props)
+		this.state = {
+			data: [300,100,150,225,75,275],
+			width: 500,
+			height: 400
+		};
+		this.addElement = this.addElement.bind(this);
+		this.removeElement = this.removeElement.bind(this);
+	}
+
+	addElement(event){
+		this.setState({ 
+		  data: this.state.data.concat([Math.floor(Math.random()*300)])
+		});
+	}
+
+	removeElement(event){
+		this.setState({ 
+		  data: this.state.data.slice(0,-1)
+		});
+	}
+
+	render() {
+		........
+
+		return ( 
+				<div>
+					<svg width={this.state.width} height={this.state.height}>
+						{bars}
+					</svg>
+					<p id="add" onClick={this.addElement}>Add</p>
+					<p id="'remove" onClick={this.removeElement}>Remove</p>
+				</div>
+			);
+	}
+
 
 ## References
 
