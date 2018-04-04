@@ -1,5 +1,13 @@
 # React+D3 Tutorial
 
+## Authors:
+
+Midhun Gundapuneni(mg3845)
+
+Chin-Wen Chang(cc3677)
+
+## Description:
+
 This project is a beginner level tutorial to setting up a react app. We will also look into developing a simple bar chart with D3.
 
 ## Requirements
