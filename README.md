@@ -298,8 +298,8 @@ We will now add two buttons in the BarChart "Add" and "Remove". As the names ind
 					<svg width={this.state.width} height={this.state.height}>
 						{bars}
 					</svg>
-					<p id="add" onClick={this.addElement}>Add</p>
-					<p id="'remove" onClick={this.removeElement}>Remove</p>
+					<p id="Add" onClick={this.addElement}>Add</p>
+					<p id="Remove" onClick={this.removeElement}>Remove</p>
 				</div>
 			);
 	}
