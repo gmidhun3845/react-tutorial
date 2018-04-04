@@ -143,4 +143,48 @@ Finally run the command below to start the server and you will be able to see th
 
 	npm run dev
 
+## Creating a Bar-Chart
+
+### creating a bar
+
+create a folder components, then we will create our first component i.e., a rectangle for the bar chart.
+
+	mkdir components
+	cd components
+	touch Rectangle.js
+
+Write the following code to the file. Which receives props from a parent component and creates a rectangle from those specifications.
+
+	import React, { Component } from 'react'
+
+	class Rectangle extends Component {
+		render() {
+			return ( <rect width={this.props.width} height={this.props.height} x={this.props.x} y={this.props.y} /> );
+		}
+	}
+
+	export default Rectangle;
+
+Also modify the App.js as below to send props to the child components and render the child component.
+
+	import React, {Component} from 'react';
+	import Rectangle from '../components/Rectangle'
+
+	class App extends Component {
+	    render () {
+	        return (
+	        	<div>
+	        		<h1 style={{color:"green"}}>React & D3 tutorial</h1>
+	        		<svg height="500" width="500">
+	        			<Rectangle height="30" width="150" x="30" y="30" fill="orange"></Rectangle>
+	        		</svg>
+	        	</div>
+	        );
+	    }
+	}
+
+	export default App;
+
+You can see by running the app a rectangle in the browser.
+![Rectangle example](react_rectangle.png)
 ---
